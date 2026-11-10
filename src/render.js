@@ -13,9 +13,13 @@ const pp = (v) => (Math.abs(v) < 0.05 ? "0.0 pp" : minus(`${v > 0 ? "+" : ""}${v
 const range = (r) => `${r.min.toFixed(1)}–${r.max.toFixed(1)}%`;
 const share = (n, total) => `${Math.round((n / total) * 100)}%`;
 
-export const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="/icons.svg#${name}"/></svg>`;
-const flag = (code) =>
-  code ? `<img class="flag" src="/flags/${code}.svg" alt="" width="20" height="14">` : "";
+export const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#${name}"/></svg>`;
+// Flags are bundled by Vite (inlined as data URLs), so they work wherever the page is hosted.
+const FLAGS = import.meta.glob("./flags/*.svg", { eager: true, query: "?url", import: "default" });
+export function flag(code) {
+  const src = FLAGS[`./flags/${code}.svg`];
+  return src ? `<img class="flag" src="${src}" alt="" width="20" height="14">` : "";
+}
 
 export const badge = (status, label = STATUS_LABEL[status]) =>
   `<span class="badge" data-status="${status}">${esc(label)}</span>`;

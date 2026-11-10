@@ -9,16 +9,17 @@ Plain HTML, CSS and a little JavaScript, served by [Vite](https://vite.dev). No 
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # static output in dist/ (what Vercel deploys)
+npm run build    # dist/index.html: one self-contained file
 ```
+
+The build inlines CSS, JavaScript, data, icons and flags into a single `index.html` (via `vite-plugin-singlefile`), so it works in any folder on any host, or opened straight from disk.
 
 ## Structure
 
 ```
-index.html               static shell: header, filters, empty table, panel
+index.html               static shell: icon sprite, header, filters, empty table, panel
 norrvik_dataset.json     quarterly actuals per entity (the only data source)
-public/icons.svg         icon sprite: <svg class="icon"><use href="/icons.svg#close"/></svg>
-public/flags/            country flags exported from the Figma library
+src/flags/               country flags exported from the Figma library (bundled by Vite)
 src/data.js              pure functions: status, trend, gaps, year outlook, summary
 src/render.js            HTML templates, one per Figma component; COLUMNS config
 src/main.js              state, events, filtering, sorting, grouping, panel, CSV export
@@ -55,4 +56,4 @@ src/styles/
 
 ## Deploy
 
-Push to GitHub, import the repo in Vercel. Vite is detected automatically (build `npm run build`, output `dist`).
+Pushing to `main` runs `.github/workflows/pages.yml`, which builds and publishes to GitHub Pages. For any other host, upload `dist/index.html`.

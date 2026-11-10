@@ -1,6 +1,6 @@
 import "./styles/main.css";
 import { GROUP, LATEST, QUARTERS, entities, quarterLabel, shortQuarter, summarize } from "./data.js";
-import { COLUMNS, columnLabel, esc, icon, renderKpis, renderPanel, renderRows } from "./render.js";
+import { COLUMNS, columnLabel, esc, flag, icon, renderKpis, renderPanel, renderRows } from "./render.js";
 
 /* ---------- State: everything the page shows is derived from this ---------- */
 const state = {
@@ -117,7 +117,7 @@ function buildMenus() {
   const countries = Object.entries(Object.groupBy(all, (r) => r.country)).sort(([a], [b]) => a.localeCompare(b));
   $("#country-options").innerHTML = countries
     .map(
-      ([name, list], i) => `<label class="menu__option"><input class="checkbox" type="checkbox" name="country" value="${esc(name)}"${i === 0 ? " data-autofocus" : ""}/><img class="flag" src="/flags/${list[0].code}.svg" alt="" width="20" height="14"><span>${esc(name)}</span><span class="menu__count">${list.length}</span></label>`,
+      ([name, list], i) => `<label class="menu__option"><input class="checkbox" type="checkbox" name="country" value="${esc(name)}"${i === 0 ? " data-autofocus" : ""}/>${flag(list[0].code)}<span>${esc(name)}</span><span class="menu__count">${list.length}</span></label>`,
     )
     .join("");
 

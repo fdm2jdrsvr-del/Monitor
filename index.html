@@ -11,6 +11,17 @@
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
+    <!-- Icon sprite, same set as the Figma library. Use: <svg class="icon"><use href="#close"/></svg> -->
+    <svg class="visually-hidden" aria-hidden="true">
+      <symbol id="chevron-down" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></symbol>
+      <symbol id="arrow-down" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.5v9M8 12.5 4.5 9M8 12.5 11.5 9"/></symbol>
+      <symbol id="arrow-up-right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5l7-7M11.5 4.5h-6M11.5 4.5v6"/></symbol>
+      <symbol id="arrow-down-right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5l7 7M11.5 11.5v-6M11.5 11.5h-6"/></symbol>
+      <symbol id="arrow-right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M13 8 9 4M13 8l-4 4"/></symbol>
+      <symbol id="close" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></symbol>
+      <symbol id="alert" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v3.5M8 11h.01M14 8A6 6 0 1 1 2 8a6 6 0 0 1 12 0Z"/></symbol>
+    </svg>
+
     <main class="app">
       <header class="app__header">
         <div class="app__title">
@@ -21,7 +32,7 @@
           <div class="dropdown">
             <button class="button button--secondary" type="button" aria-expanded="false" aria-controls="period-menu">
               <span id="period-button-label"></span>
-              <svg class="icon" aria-hidden="true"><use href="/icons.svg#chevron-down" /></svg>
+              <svg class="icon" aria-hidden="true"><use href="#chevron-down" /></svg>
             </button>
             <form class="menu menu--end" id="period-menu" hidden>
               <fieldset>
@@ -47,7 +58,7 @@
           <div class="dropdown">
             <button class="chip" type="button" aria-expanded="false" aria-controls="country-menu" id="country-chip">
               Country <span class="chip__count" id="country-value">all</span>
-              <svg class="icon" aria-hidden="true"><use href="/icons.svg#chevron-down" /></svg>
+              <svg class="icon" aria-hidden="true"><use href="#chevron-down" /></svg>
             </button>
             <form class="menu" id="country-menu" hidden>
               <fieldset>
@@ -66,7 +77,7 @@
           <div class="dropdown">
             <button class="chip" type="button" aria-expanded="false" aria-controls="group-menu" id="group-chip">
               Grouping <span class="chip__count" id="group-value">no</span>
-              <svg class="icon" aria-hidden="true"><use href="/icons.svg#chevron-down" /></svg>
+              <svg class="icon" aria-hidden="true"><use href="#chevron-down" /></svg>
             </button>
             <form class="menu menu--end" id="group-menu" hidden>
               <fieldset>
@@ -81,7 +92,7 @@
           <div class="dropdown">
             <button class="chip" type="button" aria-expanded="false" aria-controls="column-menu" id="column-chip">
               Columns <span class="chip__count" id="column-value">All</span>
-              <svg class="icon" aria-hidden="true"><use href="/icons.svg#chevron-down" /></svg>
+              <svg class="icon" aria-hidden="true"><use href="#chevron-down" /></svg>
             </button>
             <form class="menu menu--end" id="column-menu" hidden>
               <fieldset>
