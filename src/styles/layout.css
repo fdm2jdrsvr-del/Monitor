@@ -1,0 +1,62 @@
+/* Layout — page frame and two spacing primitives. */
+.app {
+  display: grid;
+  gap: var(--space-24);
+  padding: var(--space-32);
+}
+
+.app__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+.app__title {
+  display: grid;
+  gap: var(--space-8);
+}
+.app__title h1 {
+  font-size: var(--font-size-display);
+}
+.app__period {
+  font-size: var(--font-size-subheading);
+  font-weight: var(--font-weight-semibold);
+}
+
+.kpis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+}
+.kpis > * {
+  width: var(--kpi-width);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+/* Vertical rhythm: children stacked with a gap. */
+.stack {
+  display: grid;
+  gap: var(--stack-gap, var(--space-16));
+  align-content: start;
+}
+
+/* Inline group that wraps: buttons, chips, badges. */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cluster-gap, var(--space-8));
+}
+
+.muted {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}

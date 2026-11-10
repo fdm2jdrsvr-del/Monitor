@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Norrvik TP Monitor</title>
+    <meta name="description" content="Transfer pricing monitor: entities against their policy range, trends, missing data." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div class="app__title">
+          <h1 id="group-name">Norrvik Group</h1>
+          <p class="app__period" id="period-label"></p>
+        </div>
+        <div class="cluster">
+          <div class="dropdown">
+            <button class="button button--secondary" type="button" aria-expanded="false" aria-controls="period-menu">
+              <span id="period-button-label"></span>
+              <svg class="icon" aria-hidden="true"><use href="/icons.svg#chevron-down" /></svg>
+            </button>
+            <form class="menu menu--end" id="period-menu" hidden>
+              <fieldset>
+                <legend>Show actuals as of</legend>
+                <div id="period-options"></div>
+              </fieldset>
+            </form>
+          </div>
+          <button class="button button--primary" type="button" id="export">Export</button>
+        </div>
+      </header>
+
+      <section class="kpis" id="kpis" aria-label="Summary"></section>
+
+      <div class="toolbar">
+        <div class="cluster" role="group" aria-label="Filters">
+          <button class="chip" type="button" aria-pressed="true" data-filter="all">All <span class="chip__count" data-count="all"></span></button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="out-of-range">Out of range <span class="chip__count" data-count="out-of-range"></span></button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="near-limit">Near a limit <span class="chip__count" data-count="near-limit"></span></button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="missing">Missing data <span class="chip__count" data-count="missing"></span></button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="in-range">In range <span class="chip__count" data-count="in-range"></span></button>
+
+          <div class="dropdown">
+            <button class="chip" type="button" aria-expanded="false" aria-controls="country-menu" id="country-chip">
+              Country <span class="chip__count" id="country-value">all</span>
+              <svg class="icon" aria-hidden="true"><use href="/icons.svg#chevron-down" /></svg>
+            </button>
+            <form class="menu" id="country-menu" hidden>
+              <fieldset>
+                <legend>Filter by country</legend>
+                <div id="country-options"></div>
+              </fieldset>
+              <div class="menu__footer">
+                <button class="button button--ghost button--sm" type="reset">Clear</button>
+                <button class="button button--primary button--sm" type="submit">Apply</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="cluster">
+          <div class="dropdown">
+            <button class="chip" type="button" aria-expanded="false" aria-controls="group-menu" id="group-chip">
+              Grouping <span class="chip__count" id="group-value">no</span>
+              <svg class="icon" aria-hidden="true"><use href="/icons.svg#chevron-down" /></svg>
+            </button>
+            <form class="menu menu--end" id="group-menu" hidden>
+              <fieldset>
+                <legend>Group rows by</legend>
+                <label class="menu__option"><input class="checkbox" type="radio" name="group" value="none" checked data-autofocus /><span>No grouping</span></label>
+                <label class="menu__option"><input class="checkbox" type="radio" name="group" value="country" /><span>Country</span></label>
+                <label class="menu__option"><input class="checkbox" type="radio" name="group" value="role" /><span>Role</span></label>
+              </fieldset>
+            </form>
+          </div>
+
+          <div class="dropdown">
+            <button class="chip" type="button" aria-expanded="false" aria-controls="column-menu" id="column-chip">
+              Columns <span class="chip__count" id="column-value">All</span>
+              <svg class="icon" aria-hidden="true"><use href="/icons.svg#chevron-down" /></svg>
+            </button>
+            <form class="menu menu--end" id="column-menu" hidden>
+              <fieldset>
+                <legend>Show columns</legend>
+                <div id="column-options"></div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <p class="visually-hidden" aria-live="polite" id="result-count"></p>
+
+      <div class="table-wrap table-wrap--bare">
+        <table class="table" id="entity-table">
+          <caption class="visually-hidden">Entities against their transfer pricing policy range</caption>
+          <thead></thead>
+        </table>
+      </div>
+    </main>
+
+    <aside class="panel" id="entity-panel" aria-labelledby="panel-title" hidden></aside>
+  </body>
+</html>
