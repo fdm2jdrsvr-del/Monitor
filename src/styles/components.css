@@ -499,6 +499,7 @@ th[aria-sort="ascending"] .sort .icon {
   border: var(--border-width) solid var(--color-border-default);
   border-radius: var(--radius-8);
   background: var(--color-surface-default);
+  box-shadow: var(--shadow-card);
 }
 .kpi::before {
   content: "";
@@ -514,10 +515,11 @@ th[aria-sort="ascending"] .sort .icon {
 .kpi__label {
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 .kpi__value {
   font-size: var(--font-size-display);
+  font-weight: var(--font-weight-display);
 }
 .kpi__value--text {
   font-size: var(--font-size-body);
@@ -548,6 +550,7 @@ th[aria-sort="ascending"] .sort .icon {
 }
 .stat__value {
   font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-heading);
 }
 .stat__caption {
   color: var(--color-text-secondary);
@@ -625,7 +628,7 @@ th[aria-sort="ascending"] .sort .icon {
 .panel__title-row h2 {
   flex: 1;
   font-size: var(--font-size-heading);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-heading);
 }
 .panel__meta {
   font-size: var(--font-size-small);

@@ -55,10 +55,13 @@
   --font-size-body: 14px;       /* Body, Body strong */
   --font-size-subheading: 16px; /* Subheading */
   --font-size-heading: 20px;    /* Heading */
+  --font-weight-heading: var(--font-weight-semibold); /* Heading is Semi Bold */
   --font-size-display: 28px;    /* Display */
+  --font-weight-display: var(--font-weight-semibold); /* Display is Semi Bold */
 
   /* Elevation · Figma effect style "Elevation/Overlay" */
   --shadow-overlay: 0 8px 24px -4px rgb(26 26 26 / 0.12), 0 2px 4px rgb(26 26 26 / 0.08);
+  --shadow-card: 1px 1px 8px rgb(0 0 0 / 0.04); /* KPI card */
 
   /* Fixed sizes used by components in the Figma library */
   --border-width: 1px;

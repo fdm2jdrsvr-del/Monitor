@@ -18,6 +18,7 @@
 }
 .app__title h1 {
   font-size: var(--font-size-display);
+  font-weight: var(--font-weight-display);
 }
 .app__period {
   font-size: var(--font-size-subheading);
